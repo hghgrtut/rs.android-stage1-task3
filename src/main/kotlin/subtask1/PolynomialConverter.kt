@@ -4,7 +4,6 @@ import kotlin.math.abs
 
 class PolynomialConverter {
 
-    // TODO: Complete the following function
     fun convertToStringFrom(numbers: Array<Int>): String? {
         if (numbers.isEmpty()) return null
         var degr = numbers.lastIndex
