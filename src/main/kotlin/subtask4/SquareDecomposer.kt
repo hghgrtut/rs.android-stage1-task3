@@ -10,17 +10,14 @@ class SquareDecomposer {
             if (sum<0L) return null
             else if (sum==0L) return ArrayList()
             else {
-                var n=number-1
+                var n=number
                 var arl: ArrayList<Int>? =null
-                while (n>0 && arl == null){
-                    arl=decompose(sum-n.toLong()*n.toLong(), n)
+                while (n>1 && arl == null){
                     n--
+                    arl=decompose(sum-n.toLong()*n.toLong(), n)
                 }
-                if (arl == null) return null
-                else{
-                    arl.add(n+1)
-                    return arl
-                }
+                arl?.add(n)
+                return arl
             }
     }
 }

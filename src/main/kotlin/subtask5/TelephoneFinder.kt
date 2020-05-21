@@ -12,18 +12,19 @@ class TelephoneFinder {
     }
 
     private fun changeNumber(position: Int, number: String): ArrayList<String>{
-        return when (number[position]){
-            '0' ->{newNumbers(position, arrayOf('8'), number)}
-            '1' ->{newNumbers(position, arrayOf('2', '4'), number)}
-            '2' ->{newNumbers(position, arrayOf('1', '3', '5'), number)}
-            '3' ->{newNumbers(position, arrayOf('2', '6'), number)}
-            '4' ->{newNumbers(position, arrayOf('1', '5', '7'), number) }
-            '5' ->{newNumbers(position, arrayOf('2', '4', '6', '8'), number)}
-            '6' ->{newNumbers(position, arrayOf('3', '5', '9'), number)}
-            '7' ->{newNumbers(position, arrayOf('4', '8'), number)}
-            '8' ->{newNumbers(position, arrayOf('5', '7', '9', '0'), number)}
-            else ->{newNumbers(position, arrayOf('6', '8'), number) }
+        val possibleDigits:Array<Char> = when (number[position]){
+            '0' -> arrayOf('8')
+            '1' -> arrayOf('2', '4')
+            '2' -> arrayOf('1', '3', '5')
+            '3' -> arrayOf('2', '6')
+            '4' -> arrayOf('1', '5', '7')
+            '5' -> arrayOf('2', '4', '6', '8')
+            '6' -> arrayOf('3', '5', '9')
+            '7' -> arrayOf('4', '8')
+            '8' -> arrayOf('5', '7', '9', '0')
+            else -> arrayOf('6', '8')
         }
+        return newNumbers(position, possibleDigits, number)
     }
 
     private fun newNumbers(position: Int, digits: Array<Char>, number: String): ArrayList<String>{
